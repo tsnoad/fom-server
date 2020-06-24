@@ -31,7 +31,7 @@ RUN apt-get install -qy php-mysql
 # Install proxy Dependencies
 RUN \
   apt-get update -q && \
-  apt-get install -qy apache2 php php-common curl libcurl3 php-curl libapache2-mod-php php-xml-parser php-gd php-sqlite3 php-tidy php-cli php-mysql inotify-tools && \
+  apt-get install -qy apache2 php php-common curl libcurl3 php-curl libapache2-mod-php php-xml php-gd php-sqlite3 php-tidy php-cli php-mysql inotify-tools && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
  
