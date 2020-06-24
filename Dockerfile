@@ -39,7 +39,7 @@ RUN \
 RUN \
   service apache2 restart && \
   rm -R -f /var/www && \
-  ln -s /web /var/www
+  ln -s /web /var/www && \
   a2enmod rewrite && \
   service apache2 restart
   
