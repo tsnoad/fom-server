@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.15
+FROM phusion/baseimage:bionic-1.0.0
 MAINTAINER nando
 
 # Set correct environment variables
@@ -25,14 +25,13 @@ CMD ["/sbin/my_init"]
 RUN apt-get update 
 RUN apt-get install -qy mc
 RUN apt-get install -qy tmux
-RUN apt-get install -qy php5-mysql
-RUN apt-get install -qy php5-mysqlnd
+RUN apt-get install -qy php-mysql
 
 
 # Install proxy Dependencies
 RUN \
   apt-get update -q && \
-  apt-get install -qy apache2 php7.0 php7.0-common curl libcurl3 php7.0-curl libapache2-mod-php7.0 php-xml-parser php7.0-gd php7.0-sqlite3 php7.0-mcrypt php7.0-tidy php7.0-cli php-mysql inotify-tools libapache2-mod-proxy-html && \
+  apt-get install -qy apache2 php php-common curl libcurl3 php-curl libapache2-mod-php php-xml-parser php-gd php-sqlite3 php-tidy php-cli php-mysql inotify-tools && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
  
