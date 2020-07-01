@@ -25,13 +25,12 @@ CMD ["/sbin/my_init"]
 RUN apt-get update 
 RUN apt-get install -qy mc
 RUN apt-get install -qy tmux
-RUN apt-get install -qy php-mysql
 
 
 # Install proxy Dependencies
 RUN \
   apt-get update -q && \
-  apt-get install -qy apache2 php php-common curl libcurl4 php-curl libapache2-mod-php php-xml php-gd php-sqlite3 php-tidy php-cli php-mysql inotify-tools && \
+  apt-get install -qy apache2 php php-common curl libcurl4 php-curl libapache2-mod-php php-xml php-gd php-tidy php-cli postgresql php-pgsql inotify-tools ffmpeg && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
  
