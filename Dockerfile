@@ -22,7 +22,7 @@ CMD ["/sbin/my_init"]
  chown -R nobody:users /home
 
 
-RUN apt-get update 
+RUN apt-get update
 RUN apt-get install -qy mc
 RUN apt-get install -qy tmux
 
@@ -30,17 +30,17 @@ RUN apt-get install -qy tmux
 # Install proxy Dependencies
 RUN \
   apt-get update -q && \
-  apt-get install -qy apache2 php php-common curl libcurl4 php-curl libapache2-mod-php php-xml php-gd php-tidy php-cli postgresql php-pgsql inotify-tools ffmpeg && \
+  apt-get install -qy systemd apache2 php php-common curl libcurl4 php-curl libapache2-mod-php php-xml php-gd php-tidy php-cli postgresql php-pgsql inotify-tools ffmpeg nano && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
- 
+
 RUN \
   service apache2 restart && \
   rm -R -f /var/www && \
   ln -s /web /var/www && \
   a2enmod rewrite && \
   service apache2 restart
-  
+
 # Update apache configuration with this one
 RUN \
   mv /etc/apache2/sites-available/000-default.conf /etc/apache2/000-default.conf && \
