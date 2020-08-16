@@ -10,5 +10,7 @@ RUN apt install -y apache2 php libapache2-mod-php php-cli postgresql php-pgsql f
   rm -rf /var/lib/apt/lists/* && \
   apt clean
 
+COPY start.sh /start.sh
+CMD ["./start.sh"]
 
-EXPOSE 80 443
+EXPOSE 80
